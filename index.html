@@ -202,7 +202,8 @@
       <div class="solution-path">/solutions/iframe-decoy-solution/</div>
       <div class="solution-description">
         <p>
-          This solution uses an iframe to create a decoy input that is positioned high enough to prevent the viewport from shifting when the keyboard appears.
+          This solution uses a decoy input that is positioned high enough to prevent the viewport from shifting when the keyboard appears.
+          In checkout, the login screen is in an iframe, so we also used one in this prototype in case it caused any issues.
         </p>
         <p>
           Based on this article: <a href="https://blog.opendigerati.com/the-eccentric-ways-of-ios-safari-with-the-keyboard-b5aa3f34228d" target="_blank" onclick="event.stopPropagation();">The Eccentric Ways of iOS Safari with the Keyboard</a>
@@ -210,38 +211,68 @@
       </div>
     </div>
 
-    <a href="solutions/chatgpt-solution-5-tranform-with-js/" class="solution">
+    <div class="solution" onclick="window.location.href='solutions/chatgpt-solution-5-tranform-with-js/'" style="cursor: pointer;">
       <div class="solution-name">ChatGPT Solution 5: Transform with JavaScript</div>
       <div class="solution-path">/solutions/chatgpt-solution-5-tranform-with-js/</div>
-    </a>
+      <div class="solution-description">
+        <p>
+          Uses the Visual Viewport API to counter the keyboard shift by adjusting a fixed header's transform on keyboard open. Keeps the fixed header visually glued to the top of the screen as the keyboard changes the visual viewport's offset.
+        </p>
+      </div>
+    </div>
 
     <h2 class="section-header warning"><span>⚠ Doesn't Work</span></h2>
 
-    <a href="solutions/user-prevent-virtual-keyboard-scrolling/dist/" class="solution">
+    <div class="solution" onclick="window.location.href='solutions/user-prevent-virtual-keyboard-scrolling/dist/'" style="cursor: pointer;">
       <div class="solution-name">User Prevent Virtual Keyboard Scrolling (React)</div>
       <div class="solution-path">/solutions/user-prevent-virtual-keyboard-scrolling/dist/</div>
-    </a>
+      <div class="solution-description">
+        <p>
+          Use <a href="https://developer.mozilla.org/en-US/docs/Web/API/VirtualKeyboard/overlaysContent">virtualKeyboard.overlayContent</a> to disable all mucking with the viewport when the keyboard opens. shop-server uses this api in the <a href="https://github.com/Shopify/shop-server/blob/1d0b24bd162ef59458646e1ee6c7c0ef550154bd/areas/platforms/shop-server/engines/pay/app/ui/sections/components/IdentityServerDriven/steps/utils/usePreventVirtualKeyboardScrolling.ts">usePreventVirtualKeyboardScrolling</a> hook. <a href="https://developer.mozilla.org/en-US/docs/Web/API/VirtualKeyboard/overlaysContent#browser_compatibility">Unfortunately safari doesn't support it</a>
+        </p>
+      </div>
+    </div>
 
 
-    <a href="solutions/chatgpt-solution-1-make-fixed-page-app/" class="solution">
+    <div class="solution" onclick="window.location.href='solutions/chatgpt-solution-1-make-fixed-page-app/'" style="cursor: pointer;">
       <div class="solution-name">ChatGPT Solution 1: Fixed Page App</div>
       <div class="solution-path">/solutions/chatgpt-solution-1-make-fixed-page-app/</div>
-    </a>
+      <div class="solution-description">
+        <p>
+          Creates a fixed app shell with scrolling content. Uses a robust pattern that avoids the bug by moving scrolling into an inner container with position: sticky header inside that container, keeping the header pinned regardless of keyboard state.
+        </p>
+      </div>
+    </div>
     
-    <a href="solutions/chatgpt-solution-2-dynamic-viewport-units/" class="solution">
+    <div class="solution" onclick="window.location.href='solutions/chatgpt-solution-2-dynamic-viewport-units/'" style="cursor: pointer;">
       <div class="solution-name">ChatGPT Solution 2: Dynamic Viewport Units</div>
       <div class="solution-path">/solutions/chatgpt-solution-2-dynamic-viewport-units/</div>
-    </a>
+      <div class="solution-description">
+        <p>
+          Avoids using 100vh on iOS and instead uses dynamic viewport units (dvh) with JavaScript fallback. Sets a custom --vh property that stays in sync with the visual viewport to handle keyboard changes.
+        </p>
+      </div>
+    </div>
     
-    <a href="solutions/chatgpt-solution-3-meta-viewport/" class="solution">
+    <div class="solution" onclick="window.location.href='solutions/chatgpt-solution-3-meta-viewport/'" style="cursor: pointer;">
       <div class="solution-name">ChatGPT Solution 3: Meta Viewport</div>
       <div class="solution-path">/solutions/chatgpt-solution-3-meta-viewport/</div>
-    </a>
+      <div class="solution-description">
+        <p>
+          Configures the meta viewport tag with viewport-fit=cover and uses safe-area-inset-top padding to handle full-bleed webviews and account for notches/status bars.
+        </p>
+      </div>
+    </div>
     
-    <a href="solutions/chatgpt-solution-4-input-focus/" class="solution">
+    <div class="solution" onclick="window.location.href='solutions/chatgpt-solution-4-input-focus/'" style="cursor: pointer;">
       <div class="solution-name">ChatGPT Solution 4: Input Focus</div>
       <div class="solution-path">/solutions/chatgpt-solution-4-input-focus/</div>
-    </a>
+      <div class="solution-description">
+        <p>
+          Prevents the browser from auto-scrolling the page when inputs are focused. Uses JavaScript to ensure focused inputs are visible without jumping the whole layout, scrolling only the inner container.
+        </p>
+      </div>
+    </div>
 
   </div>
   
