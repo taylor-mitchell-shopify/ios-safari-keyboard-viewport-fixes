@@ -1,6 +1,6 @@
-# iOS Safari Sticky Header Solutions
+# iOS Safari Viewport Shift Solutions
 
-A collection of various solutions to test for the iOS Safari keyboard/sticky header bug. This repository contains multiple approaches to handle the issue where the virtual keyboard affects sticky positioned elements in iOS Safari.
+A collection of various solutions to test for the iOS Safari viewport shift bug. This repository contains multiple approaches to handle the issue where the virtual keyboard affects sticky positioned elements in iOS Safari.
 
 **GitHub Repository:** https://github.com/taylor-mitchell-shopify/ios-safari-keyboard-viewport-fixes  
 **Related Issue:** https://github.com/shop/issues-shop-wallet/issues/289
