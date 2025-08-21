@@ -4,8 +4,8 @@
   "description": "Test various solutions for iOS Safari sticky header keyboard bug",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "npx serve . -p 3000",
+    "deploy": "quick deploy . ios-sticky-header-solutions",
   },
   "keywords": [
     "ios",

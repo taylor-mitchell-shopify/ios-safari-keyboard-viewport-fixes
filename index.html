@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iOS Safari Sticky Header Solutions</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: #f5f5f7;
+    }
+    h1 {
+      color: #1d1d1f;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+    .subtitle {
+      color: #6e6e73;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+    .solutions {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .solution {
+      display: block;
+      padding: 16px 20px;
+      color: #1d1d1f;
+      text-decoration: none;
+      border-bottom: 1px solid #e5e5e7;
+      transition: background-color 0.2s;
+    }
+    .solution:hover {
+      background-color: #f5f5f7;
+    }
+    .solution:last-child {
+      border-bottom: none;
+    }
+    .solution-name {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .solution-path {
+      font-size: 12px;
+      color: #6e6e73;
+    }
+    .info {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #856404;
+    }
+    .deployment-info {
+      background: white;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    .deployment-info strong {
+      color: #007aff;
+    }
+    .about {
+      margin-top: 40px;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+    }
+    .about h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .about p {
+      color: #6e6e73;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>iOS Safari Sticky Header Solutions</h1>
+  <p class="subtitle">Test various solutions for the iOS Safari keyboard/sticky header bug</p>
+  
+  <div class="deployment-info">
+    📱 Testing on iOS: Open Safari and navigate to this page on your iPhone
+  </div>
+  
+  <div class="info">
+    💡 Click on any solution below to test it on your iOS device
+  </div>
+  
+  <div class="solutions">
+    <!-- ChatGPT Solutions -->
+    <a href="solutions/chatgpt-solution-1-make-fixed-page-app/" class="solution">
+      <div class="solution-name">ChatGPT Solution 1: Fixed Page App</div>
+      <div class="solution-path">/solutions/chatgpt-solution-1-make-fixed-page-app/</div>
+    </a>
+    
+    <a href="solutions/chatgpt-solution-2-dynamic-viewport-units/" class="solution">
+      <div class="solution-name">ChatGPT Solution 2: Dynamic Viewport Units</div>
+      <div class="solution-path">/solutions/chatgpt-solution-2-dynamic-viewport-units/</div>
+    </a>
+    
+    <a href="solutions/chatgpt-solution-3-meta-viewport/" class="solution">
+      <div class="solution-name">ChatGPT Solution 3: Meta Viewport</div>
+      <div class="solution-path">/solutions/chatgpt-solution-3-meta-viewport/</div>
+    </a>
+    
+    <a href="solutions/chatgpt-solution-4-input-focus/" class="solution">
+      <div class="solution-name">ChatGPT Solution 4: Input Focus</div>
+      <div class="solution-path">/solutions/chatgpt-solution-4-input-focus/</div>
+    </a>
+    
+    <a href="solutions/chatgpt-solution-5-visual-viewport/" class="solution">
+      <div class="solution-name">ChatGPT Solution 5: Visual Viewport</div>
+      <div class="solution-path">/solutions/chatgpt-solution-5-visual-viewport/</div>
+    </a>
+    
+    <!-- Other Solutions -->
+    <a href="solutions/iframe-decoy-solution/" class="solution">
+      <div class="solution-name">iFrame Decoy Solution</div>
+      <div class="solution-path">/solutions/iframe-decoy-solution/</div>
+    </a>
+    
+    <a href="solutions/the-eccentric-ways-of-ios-safari-with-the-keyboard/" class="solution">
+      <div class="solution-name">The Eccentric Ways of iOS Safari with the Keyboard</div>
+      <div class="solution-path">/solutions/the-eccentric-ways-of-ios-safari-with-the-keyboard/</div>
+    </a>
+    
+    <a href="solutions/user-prevent-virtual-keyboard-scrolling/dist/" class="solution">
+      <div class="solution-name">User Prevent Virtual Keyboard Scrolling (React)</div>
+      <div class="solution-path">/solutions/user-prevent-virtual-keyboard-scrolling/dist/</div>
+    </a>
+    
+    <a href="solutions/vanilla/" class="solution">
+      <div class="solution-name">Vanilla JavaScript Solution</div>
+      <div class="solution-path">/solutions/vanilla/</div>
+    </a>
+  </div>
+  
+  <div class="about">
+    <h2>About This Collection</h2>
+    <p>
+      This collection contains various approaches to handle the iOS Safari virtual keyboard bug 
+      that affects sticky positioned elements. Each solution demonstrates a different technique 
+      for managing the viewport and element positioning when the keyboard appears.
+    </p>
+    <p style="margin-top: 10px;">
+      These solutions explore different strategies including visual viewport API, dynamic viewport units,
+      meta viewport configurations, iframe workarounds, and React hooks for preventing keyboard scrolling.
+    </p>
+  </div>
+</body>
+</html>
