@@ -1,0 +1,68 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build artifacts
+**/dist/
+**/build/
+**/.next/
+**/.nuxt/
+**/.cache/
+
+# Development files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+*.swp
+*.swo
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# Git
+.git/
+.gitignore
+
+# Documentation that's not needed for deployment
+*.md
+!README.md
+
+# Config files not needed for deployment
+.eslintrc*
+.prettierrc*
+*.config.js
+*.config.ts
+!vite.config.js
+!vite.config.ts
+
+# Source files (if we're only deploying built versions)
+**/src/
+!**/dist/src/
+!**/build/src/

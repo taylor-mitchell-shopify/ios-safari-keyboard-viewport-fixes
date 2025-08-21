@@ -78,7 +78,7 @@
                 // realInput.focus();
                 
                 updateDebug('Swapped inputs');
-            }, 500);
+            }, MOVE_DELAY);
         }
         
         // Swap decoy and real input positions

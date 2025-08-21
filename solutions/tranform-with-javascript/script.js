@@ -87,58 +87,58 @@
     }
 
     // Check if Visual Viewport API is supported
-    // if (window.visualViewport) {
-    //     function updateHeaderPosition() {
-    //         const vv = window.visualViewport;
-    //         // Keyboard heuristics: significant height difference indicates keyboard
-    //         const keyboardOpen = (window.innerHeight - vv.height) > 100;
+    if (window.visualViewport) {
+        function updateHeaderPosition() {
+            const vv = window.visualViewport;
+            // Keyboard heuristics: significant height difference indicates keyboard
+            const keyboardOpen = (window.innerHeight - vv.height) > 100;
 
-    //         if (keyboardOpen) {
-    //             positionHeaderForKeyboard();
-    //         } else {
-    //             resetHeader();
-    //         }
-    //     }
+            if (keyboardOpen) {
+                positionHeaderForKeyboard();
+            } else {
+                resetHeader();
+            }
+        }
 
-    //     // Listen for viewport changes
-    //     window.visualViewport.addEventListener('resize', () => {
-    //         console.log('Visual viewport resize event');
-    //         logEnvValues();
-    //         updateHeaderPosition();
-    //     });
+        // Listen for viewport changes
+        window.visualViewport.addEventListener('resize', () => {
+            console.log('Visual viewport resize event');
+            logEnvValues();
+            updateHeaderPosition();
+        });
         
-    //     window.visualViewport.addEventListener('scroll', () => {
-    //         console.log('Visual viewport scroll event');
-    //         updateHeaderPosition();
-    //     });
+        window.visualViewport.addEventListener('scroll', () => {
+            console.log('Visual viewport scroll event');
+            updateHeaderPosition();
+        });
 
-    //     // Listen for focus changes
-    //     window.addEventListener('focusin', () => {
-    //         console.log('Focus in event');
-    //         setTimeout(() => {
-    //             logEnvValues();
-    //             updateHeaderPosition();
-    //         }, 300);
-    //     });
+        // Listen for focus changes
+        window.addEventListener('focusin', () => {
+            console.log('Focus in event');
+            setTimeout(() => {
+                logEnvValues();
+                updateHeaderPosition();
+            }, 300);
+        });
         
-    //     window.addEventListener('focusout', () => {
-    //         console.log('Focus out event');
-    //         setTimeout(() => {
-    //             logEnvValues();
-    //             updateHeaderPosition();
-    //         }, 300);
-    //     });
+        window.addEventListener('focusout', () => {
+            console.log('Focus out event');
+            setTimeout(() => {
+                logEnvValues();
+                updateHeaderPosition();
+            }, 300);
+        });
 
-    //     // Initial setup
-    //     updateHeaderPosition();
-    // }
+        // Initial setup
+        updateHeaderPosition();
+    }
 
-    // // Log initial values
-    // logEnvValues();
+    // Log initial values
+    logEnvValues();
     
-    // // Expose functions for debugging
-    // window.resetHeader = resetHeader;
-    // window.positionHeaderForKeyboard = positionHeaderForKeyboard;
-    // window.logEnvValues = logEnvValues;
+    // Expose functions for debugging
+    window.resetHeader = resetHeader;
+    window.positionHeaderForKeyboard = positionHeaderForKeyboard;
+    window.logEnvValues = logEnvValues;
 
 })();

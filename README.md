@@ -2,6 +2,9 @@
 
 A collection of various solutions to test for the iOS Safari keyboard/sticky header bug. This repository contains multiple approaches to handle the issue where the virtual keyboard affects sticky positioned elements in iOS Safari.
 
+**GitHub Repository:** https://github.com/taylor-mitchell-shopify/ios-safari-keyboard-viewport-fixes  
+**Related Issue:** https://github.com/shop/issues-shop-wallet/issues/289
+
 ## Deployment to Quick (Shopify Internal)
 
 ### Quick Deployment
@@ -12,12 +15,12 @@ The project is structured to be deployed as-is to Shopify's internal Quick platf
 # Deploy to Quick
 npm run deploy
 
-# Force deploy (overwrite without confirmation)
-npm run deploy:force
+# Force deploy (overwrite without confirmation)  
+npm run deploy -- --force
 ```
 
 **Access the deployed site:**
-- URL: https://ios-sticky-header-solutions.quick.shopify.io
+- URL: https://ios-safari-keyboard-viewport-fixes.quick.shopify.io
 - Note: Only accessible to Shopify employees (requires Google auth)
 
 The entire project directory is served statically - no build step required!
