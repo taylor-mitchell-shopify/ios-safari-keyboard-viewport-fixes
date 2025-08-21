@@ -1,0 +1,65 @@
+/* Solution 4: Input Focus Niceties */
+/* Combines fixed app shell with input focus management */
+
+html, body { 
+  height: 100%; 
+  margin: 0; 
+}
+
+.app {
+  position: fixed; 
+  inset: 0;
+  display: flex; 
+  flex-direction: column;
+  padding-top: env(safe-area-inset-top, 0);
+  background: #fff;
+}
+
+.app__header {
+  position: sticky; 
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  will-change: transform;
+  box-shadow: 0 1px 0 rgba(0,0,0,.08);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app__header h1 {
+  margin: 0;
+  flex: 1;
+  font-size: 1.25rem;
+}
+
+.close {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.app__scroll {
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  overflow-anchor: none;
+  position: relative;
+}
+
+.spacer {
+  height: 30vh;
+}
+
+input {
+  font-size: 16px;
+  padding: 1rem;
+  width: calc(100% - 2rem);
+  margin: 0 1rem;
+  box-sizing: border-box;
+}

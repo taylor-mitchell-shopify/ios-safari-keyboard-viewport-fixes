@@ -1,0 +1,74 @@
+/* Solution 5: Fixed Header with Visual Viewport API */
+/* Uses JavaScript to counter the keyboard shift */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.header-fixed {
+  position: fixed; 
+  left: 0; 
+  right: 0; 
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(0,0,0,.1);
+  padding: 1rem;
+  padding-top: calc(1rem + env(safe-area-inset-top, 0));
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  /* Critical: we'll adjust this in JS */
+  transform: translateY(0);
+  will-change: transform;
+}
+
+.header-fixed h1 {
+  margin: 0;
+  flex: 1;
+  font-size: 1.25rem;
+}
+
+.close {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.content {
+  /* Add top padding to account for fixed header */
+  padding-top: calc(4rem + env(safe-area-inset-top, 0));
+  min-height: 100vh;
+}
+
+.spacer {
+  height: 40vh;
+}
+
+input {
+  font-size: 16px;
+  padding: 1rem;
+  width: calc(100% - 2rem);
+  margin: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Debug info display */
+.debug {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 11px;
+  z-index: 9999;
+  border-radius: 4px;
+  max-width: 300px;
+  display: none; /* Hidden by default, JS will show if needed */
+}

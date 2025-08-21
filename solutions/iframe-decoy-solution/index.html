@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Iframe Decoy Solution</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f5f5f5;
+        }
+        
+        /* Fixed header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1rem;
+            padding-top: calc(1rem + env(safe-area-inset-top, 0));
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .header h1 {
+            flex: 1;
+            font-size: 1.25rem;
+            margin: 0;
+        }
+        
+        .close-btn {
+            background: none;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+            font-size: 1.25rem;
+        }
+        
+        /* Main content */
+        .content {
+            padding-top: calc(4rem + env(safe-area-inset-top, 0));
+            min-height: 100vh;
+        }
+        
+        .info {
+            padding: 1rem;
+            background: white;
+            margin: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .info h2 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+        
+        .info p {
+            font-size: 0.875rem;
+            color: #888;
+            line-height: 1.5;
+        }
+        
+        /* Iframe container */
+        .iframe-container {
+            margin: 1rem;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            display: block;
+        }
+        
+        /* Debug panel */
+        .debug {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 11px;
+            border-radius: 4px;
+            max-width: 200px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <button class="close-btn">✕</button>
+        <h1>Fixed Header (Parent)</h1>
+    </header>
+    
+    <main class="content">
+        <div class="info">
+            <h2>Parent Page</h2>
+            <p>This page has a fixed header. The iframe below contains an input that uses the decoy strategy to prevent viewport shift on iOS Safari.</p>
+        </div>
+        
+        <div class="iframe-container">
+            <iframe src="iframe-content.html" title="Code Input Frame"></iframe>
+        </div>
+        
+        <div class="info">
+            <h2>How it works:</h2>
+            <p>1. The iframe contains both a decoy input (positioned high) and the real input</p>
+            <p>2. When user taps the real input, we intercept and focus the decoy instead</p>
+            <p>3. The decoy is high enough that Safari won't shift the viewport</p>
+            <p>4. After 100ms, we swap focus back to the real input</p>
+        </div>
+    </main>
+    
+    <div class="debug" id="debug">
+        <div>Parent Page</div>
+        <div id="parent-status">Ready</div>
+    </div>
+    
+    <script>
+        // Monitor viewport changes in parent
+        const debug = document.getElementById('parent-status');
+        let lastHeight = window.innerHeight;
+        
+        setInterval(() => {
+            if (window.innerHeight !== lastHeight) {
+                lastHeight = window.innerHeight;
+                debug.textContent = `Height: ${lastHeight}px`;
+            }
+        }, 100);
+        
+        // Listen for messages from iframe
+        window.addEventListener('message', (e) => {
+            if (e.data.type === 'debug') {
+                console.log('Iframe:', e.data.message);
+            }
+        });
+    </script>
+</body>
+</html>

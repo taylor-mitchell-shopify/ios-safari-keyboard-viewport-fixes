@@ -1,0 +1,46 @@
+/* CSS Variables for dynamic viewport units */
+:root {
+  --vh: 1vh; /* Fallback for browsers without JS */
+  --full-height: 100vh; /* Fallback */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  /* Use dynamic viewport height if supported, otherwise fall back to custom property */
+  height: 100%;
+}
+
+.app {
+  background: #fff;
+  /* Use dynamic viewport units for full height */
+  min-height: 100dvh; /* Modern browsers */
+  min-height: var(--full-height); /* JS-calculated fallback */
+  position: relative;
+}
+
+/* Fixed header - still won't solve iOS issue but properly using dynamic units */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: red;
+  padding: 1rem;
+  /* Respect safe areas for notches */
+  padding-top: calc(1rem + env(safe-area-inset-top, 0));
+}
+
+.spacer {
+  /* Use custom property instead of vh */
+  height: calc(var(--vh) * 50);
+}
+
+input, textarea, select {
+  font-size: 16px; /* Must be at least 16px to prevent iOS zoom */
+  padding: 1rem;
+  width: calc(100% - 2rem);
+  margin: 0 1rem;
+  box-sizing: border-box;
+}

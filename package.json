@@ -1,0 +1,23 @@
+{
+  "name": "ios-sticky-header-solutions",
+  "version": "1.0.0",
+  "description": "Test various solutions for iOS Safari sticky header keyboard bug",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "ios",
+    "safari",
+    "sticky",
+    "header",
+    "keyboard",
+    "bug"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Decoy Input Solution</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header class="header">
+        <button class="close">✕</button>
+        <h1>Decoy Input Strategy</h1>
+    </header>
+    
+    <main class="content">
+        <!-- Decoy input positioned high on the page (won't trigger viewport shift) -->
+        <input type="text" 
+               id="decoy-input" 
+               class="decoy-input" 
+               placeholder="Decoy (tap the real input below)"
+               aria-hidden="true">
+        
+        <div class="spacer"></div>
+        
+        <!-- Real input that users will tap -->
+        <div class="input-container">
+            <input type="text" 
+                   id="real-input" 
+                   class="real-input" 
+                   placeholder="Tap me - no viewport shift!">
+        </div>
+        
+        <div class="spacer"></div>
+        
+        <div class="info">
+            <p>This uses the "decoy input" strategy from the article:</p>
+            <ol>
+                <li>User taps the visible input at bottom</li>
+                <li>We focus a hidden input near the top instead</li>
+                <li>Safari doesn't shift the viewport (input is high enough)</li>
+                <li>After a delay, we move the real input to where user expects</li>
+            </ol>
+        </div>
+    </main>
+    
+    <div class="debug" id="debug"></div>
+</body>
+</html>

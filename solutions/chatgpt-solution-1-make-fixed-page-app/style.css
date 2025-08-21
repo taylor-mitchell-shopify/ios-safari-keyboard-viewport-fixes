@@ -1,0 +1,79 @@
+/* 1a. Full-bleed app shell that doesn't scroll with the window */
+html, body { 
+  height: 100%; 
+  margin: 0; 
+}
+
+.app {
+  position: fixed; 
+  inset: 0; /* pin to screen edges */
+  display: flex; 
+  flex-direction: column;
+  /* respect notches */
+  padding-top: env(safe-area-inset-top, 0);
+  background: #fff;
+}
+
+/* 1b. Header that sticks inside the scroll container (not window) */
+.app__header {
+  position: sticky; 
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  /* give it a solid paint layer so it doesn't flicker */
+  will-change: transform;
+  /* optional border/shadow */
+  box-shadow: 0 1px 0 rgba(0,0,0,.08);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app__header h1 {
+  margin: 0;
+  flex: 1;
+  font-size: 1.25rem;
+}
+
+.close {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+/* 1c. Only this area scrolls; keyboard won't shove the header off */
+.app__scroll {
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  /* prevent the browser from "anchoring" scroll and yanking things */
+  overflow-anchor: none;
+}
+
+.spacer {
+  height: 50vh;
+}
+
+/* Prevent iOS zoom on input focus */
+input, textarea, select {
+  font-size: 16px; /* Must be at least 16px to prevent iOS zoom */
+  padding: 1rem;
+  width: calc(100% - 2rem);
+  margin: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Optional: If you want smaller visual text, you can scale it down */
+@media screen and (max-width: 768px) {
+  input, textarea, select {
+    font-size: 16px; /* Keep at 16px for iOS */
+    /* Use transform for visual sizing if needed */
+    /* transform: scale(0.875); */ 
+    /* transform-origin: left center; */
+  }
+}
